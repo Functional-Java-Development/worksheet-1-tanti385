@@ -36,8 +36,25 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        xyzList.addAll(3,List.of(31,15,17,16));
+        xyzList.addAll(3,List.of(31,15,17,1));
         xyzList.forEach(System.out::println);
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        var abcList = new AdvancedFilteredList<Integer>((list, e) -> {
+            for (Integer element : list) {
+                if (element == e) {
+                    throw new IllegalArgumentException("Number already exists!!");
+                }
+            }
+
+            return e;
+        });
+
+        abcList.add(1);
+        abcList.add(1);
     }
 
 
